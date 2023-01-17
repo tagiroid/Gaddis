@@ -14,6 +14,9 @@ class GUI:
                                           borderwidth=1,
                                           relief='solid')
         self.buttons_frame = tkinter.Frame(self.main_window)
+        self.listbox = tkinter.Listbox(self.main_window,
+                                       height=7,
+                                       width=12)
 
         #  Radiosection
         self.radio_var = tkinter.IntVar()
@@ -66,6 +69,14 @@ class GUI:
         self.cb3.pack()
         self.check_ok.pack()
 
+        #  listboxframe
+        self.listbox.insert(0, 'Monday')
+        self.listbox.insert(1, 'Tuesday')
+        self.listbox.insert(2, 'Wednesday')
+        self.listbox.insert(3, 'Thursday')
+        self.listbox.insert(4, 'Friday')
+        self.listbox.insert(5, 'Saturday')
+        self.listbox.insert(6, 'Sunday')
         # quit buttonframe
 
         self.quit_button = tkinter.Button(self.buttons_frame,
@@ -75,7 +86,8 @@ class GUI:
         self.quit_button.pack()
 
         self.radio_frame.pack(ipadx=10, ipady=10)
-        self.check_frame.pack(ipadx= 10, ipady=10)
+        self.check_frame.pack(ipadx=10, ipady=10)
+        self.listbox.pack(padx=10, pady=10)
         self.buttons_frame.pack()
 
         tkinter.mainloop()
@@ -95,5 +107,7 @@ class GUI:
             self.message = self.message + '3\n'
 
         tkinter.messagebox.showinfo('Checkbox choice', self.message)
+
+
 if __name__ == '__main__':
     my_gui = GUI()
